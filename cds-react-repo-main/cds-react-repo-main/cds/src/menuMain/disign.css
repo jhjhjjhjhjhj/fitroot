@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+* {
+    box-sizing: border-box;
+}
+
+/* 기본 스타일 */
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.food-product-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin-left: 240px;
+}
+
+/* 가족 건강식단 스타일 */
+.food-product-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 100px 30px 10px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.food-product-row-title-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.food-product-row-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+/* 필독 버튼 스타일 */
+.food-info-button {
+    background: #87CEFA;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    font-weight: bold;
+}
+
+.food-info-button:hover {
+    background: #5CACEE;
+}
+
+/* 다이어트 식단 스타일 */
+.food-diet-product-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+.food-diet-product-row-title-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.food-diet-product-row-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.food-diet-info-button {
+    background: #87CEFA;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.food-diet-info-button:hover {
+    background: #5CACEE;
+}
+
+/* Modal Styles */
+.food-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.food-modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.food-modal-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.food-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.food-close-button:hover,
+.food-close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Product Item Styles */
+.food-product-item {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    perspective: 1000px;
+}
+
+.food-product-item-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.food-product-item:hover .food-product-item-inner {
+    transform: rotateY(180deg);
+}
+
+.food-product-front,
+.food-product-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.food-product-front {
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.food-product-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.food-product-description {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    font-size: 1em;
+    color: #000;
+    font-weight: bold;
+}
+
+.food-product-back {
+    background: #f4f4f4;
+    color: #333;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.food-product-back p {
+    margin: 5px 0;
+    box-sizing: border-box
+}
+
+.food-product-back-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    margin-top: -20px;
+}
+
+.food-recipe-button,
+.food-purchase-button {
+    background: #5CACEE;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.food-recipe-button:hover,
+.food-purchase-button:hover {
+    background: #048af8;
+}
+
+/* 사이드바 스타일 */
+.food-sidebar {
+    position: fixed;
+    top: 35%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 180px;
+    z-index: 1000;
+    text-align: center;
+}
+
+.food-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.food-sidebar ul li {
+    margin-bottom: 10px;
+}
+
+/* 사이드바 버튼 스타일 */
+.food-sidebar ul li button {
+    font-size: 1.1em;
+    /* 글자 크기를 약간 작게 조정 */
+    color: #333;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    background: none;
+    border: none;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.food-sidebar ul li button:hover {
+    background: #f1f1f1;
+}
+
+/* 페이지 링크 스타일 */
+.food-page-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.food-page-links p {
+    font-size: 1.2em;
+}
+
+.food-page-links button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: #242222;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.food-page-links button:hover {
+    text-decoration: underline;
+}

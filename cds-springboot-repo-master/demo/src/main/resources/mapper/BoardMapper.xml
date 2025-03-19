@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.mapper.BoardMapper">
+    <select id="getBoardList" resultType="com.example.demo.dto.BoardDTO">
+        select b_idx, category_tag, userid, b_title, b_content, b_date
+        from board 
+        where category_tag = #{select}
+        order by b_idx desc
+    </select>
+    
+    <delete id="deleteBoard" parameterType="com.example.demo.dto.BoardDTO">
+        delete from board
+        where b_idx = #{bIdx}
+    </delete>
+    
+    <update id="updateBoard" parameterType="com.example.demo.dto.BoardDTO">
+        update board
+        set b_content = #{bContent}
+        where b_idx = #{bIdx}
+    </update>
+    
+    <insert id="insertBoard" parameterType="com.example.demo.dto.BoardDTO">
+        insert into board (
+            category_tag, userid, b_title, b_content
+        ) values (
+            #{categoryTag}, #{userId}, #{bTitle}, #{bContent}
+        )
+    </insert>
+</mapper>

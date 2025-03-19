@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.FitMapper">
+    <insert id="loginup" parameterType="com.example.demo.dto.FitDTO">
+        insert into fitroot (
+            name, id, pw, birthday, tel
+        ) values (
+            #{name}, #{id}, #{pw}, 
+            STR_TO_DATE(#{birthday}, '%Y%m%d'), 
+            #{tel}
+        )
+    </insert>
+
+    <select id="login" parameterType="com.example.demo.dto.FitDTO" resultType="com.example.demo.dto.FitDTO">
+        select * from fitroot 
+        where id = #{id} and pw = #{pw} and status = 'N'
+    </select>
+
+    <select id="getFitIdx" parameterType="_int" resultType="com.example.demo.dto.FitDTO">
+        select 
+            u_idx, name, id, pw, 
+            DATE_FORMAT(birthday, '%Y%m%d') AS birthday,
+            tel, status, age, height, finweight,
+            gender, January, February, March, April, May, June, July, 
+            August, September, October, November, December, water, 
+            TIME_FORMAT(startsleep, '%H:%i') AS startsleep,
+            TIME_FORMAT(endsleep, '%H:%i') AS endsleep, 
+            sleepcheck
+        from fitroot
+        where u_idx = #{uIdx}
+    </select>
+
+    <update id="updateFit" parameterType="com.example.demo.dto.FitDTO">
+        update fitroot
+        set pw = #{pw}, 
+            birthday = STR_TO_DATE(#{birthday}, '%Y%m%d'), 
+            tel = #{tel}
+        where u_Idx = #{uIdx}
+    </update>
+
+    <update id="deleteFit" parameterType="_int">
+        update fitroot
+        set status = 'Y'
+        where u_Idx = #{uIdx}
+    </update>
+
+    <update id="weightin" parameterType="com.example.demo.dto.FitDTO">
+        UPDATE fitroot
+        SET age = #{age},
+            January = #{january},
+            February = #{february},
+            March = #{march},
+            April = #{april},
+            May = #{may},
+            June = #{june},
+            July = #{july},
+            August = #{august},
+            September = #{september},
+            October = #{october},
+            November = #{november},
+            December = #{december},
+            finweight = #{finweight},
+            gender = #{gender},
+            height = #{height}
+        WHERE u_Idx = #{uIdx}
+    </update>
+
+    <select id="checkid" parameterType="string" resultType="_int">
+        select count(*) from fitroot
+        where id = #{id}
+    </select>
+
+    <update id="waterin" parameterType="com.example.demo.dto.FitDTO">
+        UPDATE fitroot
+        SET water = #{water}
+        WHERE u_Idx = #{uIdx}
+    </update>
+
+    <update id="sleep" parameterType="com.example.demo.dto.FitDTO">
+        UPDATE fitroot
+        SET startsleep = STR_TO_DATE(#{startsleep}, '%H:%i'),
+            endsleep = STR_TO_DATE(#{endsleep}, '%H:%i'),
+            sleepcheck = #{sleepcheck}
+        WHERE u_idx = #{uIdx}
+    </update>
+</mapper>

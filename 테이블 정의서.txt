@@ -1,0 +1,73 @@
+------------------회원관리 테이블------------------
+CREATE TABLE fitroot(
+U_IDX NUMBER ,
+name varchar(100) NOT NULL,
+id varchar(100) NOT NULL,
+pw varchar(30) NOT NULL,
+tel varchar(100) NOT NULL,
+gender char(1),
+birthday date,
+status char(1) DEFAULT 'N',
+january NUMBER,
+february NUMBER,
+march NUMBER,
+april NUMBER,
+may NUMBER,
+june NUMBER,
+july NUMBER,
+august NUMBER,
+september NUMBER,
+october NUMBER,
+november NUMBER,
+december NUMBER,
+height NUMBER,
+age NUMBER,
+finweight NUMBER,
+water NUMBER,
+startSLEEP TIMESTAMP(6),
+endSLEEP TIMESTAMP(6),
+SLEEPCHECK CHAR(1)
+CONSTRAINT fitroot_PK PRIMARY KEY (U_IDX) 
+);
+
+CREATE SEQUENCE fit_seq
+    START WITH 1
+    MAXVALUE 9999999
+    nocycle nocache;
+
+------------------공지사항 테이블------------------
+CREATE TABLE board(
+b_idx number,
+category_tag varchar2(30) NOT NULL CONSTRAINT board_ck CHECK (category_tag IN('notice', 'event', 'question')),
+userid varchar2(100) NOT NULL,
+b_title varchar2(200) NOT NULL,
+b_content varchar2(2000) NOT NULL,
+b_date DATE DEFAULT sysdate,
+u_idx NUMBER NOT NULL,
+CONSTRAINT board_pk PRIMARY KEY (b_idx),
+CONSTRAINT board_fk FOREIGN KEY (u_idx) REFERENCES fitroot
+);
+
+CREATE SEQUENCE board_seq
+	MAXVALUE 9999999
+	nocache nocycle;
+
+------------------커뮤니티 테이블------------------
+CREATE TABLE community(
+c_idx NUMBER,
+category_tag varchar2(30) NOT NULL CONSTRAINT community_ck CHECK (category_tag IN('exercise', 'meal', 'forum')),
+userid varchar2(100) NOT NULL,
+c_title varchar2(200) NOT NULL,
+c_content varchar2(4000) NOT NULL,
+c_date DATE DEFAULT sysdate,
+c_url varchar2(100) DEFAULT '/img/logo.png',
+views NUMBER DEFAULT 0,
+likebtn NUMBER DEFAULT 0,
+u_idx NUMBER NOT NULL,
+CONSTRAINT community_pk PRIMARY KEY (c_idx),
+CONSTRAINT community_fk FOREIGN KEY (u_idx) REFERENCES fitroot
+);
+
+CREATE SEQUENCE community_seq
+	MAXVALUE 9999999
+	nocache nocycle;

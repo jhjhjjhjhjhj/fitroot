@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.mapper.CommunityMapper">
+    <select id="getCommuList" resultType="com.example.demo.dto.CommunityDTO">
+        SELECT * FROM (
+            SELECT * FROM COMMUNITY 
+            ORDER BY likebtn DESC, views DESC, c_idx DESC
+        ) AS a LIMIT 12
+    </select>
+    
+    <select id="getCommuTagList" resultType="com.example.demo.dto.CommunityDTO">
+        select *
+        from community 
+        where category_tag = #{select}
+        order by c_idx desc
+    </select>
+    
+    <delete id="deleteCommu" parameterType="com.example.demo.dto.CommunityDTO">
+        delete from community
+        where c_idx = #{cIdx}
+    </delete>
+    
+    <update id="updateCommu" parameterType="com.example.demo.dto.CommunityDTO">
+        update community
+        set c_content = #{cContent}, 
+            c_title = #{cTitle}, 
+            views = #{views}, 
+            likebtn = #{likebtn}
+        where c_idx = #{cIdx}
+    </update>
+    
+    <insert id="insertCommu" parameterType="com.example.demo.dto.CommunityDTO">
+        insert into community (
+            category_tag, userid, c_title, c_content, c_url
+        ) values (
+            #{categoryTag}, #{userId}, #{cTitle}, #{cContent}, #{cUrl}
+        )
+    </insert>
+</mapper>

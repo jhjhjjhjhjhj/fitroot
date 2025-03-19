@@ -1,0 +1,226 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    color: #000;
+}
+
+/* BoardNav : 공지사항, 이벤트, 자주묻는질문 선택 탭 */
+aside {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+}
+
+aside>button {
+    border: none;
+    background-color: #fff0;
+    padding: 10px 0px 5px;
+    font-size: 20px;
+    margin: 0px 2%;
+    border-radius: 15px;
+}
+
+aside>button>p {
+    padding: 10px;
+    margin: 0px;
+}
+
+/* BoardNew : 관리자 새 글 입력, 검색 탭 */
+.boardSearch {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.boardSearch>.boardNew>button {
+    margin: 0px 15px;
+    border: solid 1px #2C3950;
+    background-color: #fff0;
+}
+
+.boardNew>button>i {
+    margin-right: 2px;
+}
+
+.boardSearch>div>button {
+    background-color: #2C3950;
+    border: none;
+    border-radius: 10px;
+    padding: 2px;
+    text-align: center;
+}
+
+.boardSearch>div>button>i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.boardSearch>div>input {
+    margin-right: 5px;
+    border: solid 1px #2C3950;
+}
+
+/*  */
+.outhr {
+    margin: 10px 0px;
+    border: solid 1px #000;
+}
+
+.inhr {
+    width: 100%;
+}
+
+/* BoardList : Board 목록 출력하기 */
+.listpaper {
+    margin: 16px;
+}
+
+.list {
+    width: 95%;
+}
+
+.listcontentTop {
+    display: flex;
+    margin: 20px 2% 10px;
+    border: solid 2px #2C3950;
+    border-radius: 10px;
+}
+
+.listcontentTop>p {
+    margin: 20px;
+}
+
+.listcontentTop>.title {
+    margin-left: 25vw;
+}
+
+.listcontentTop>.write {
+    margin-left: 35vw;
+}
+
+.listcontentTop>.date {
+    margin-left: 5vw;
+}
+
+/* BoardItem : Board 각각 아이템 */
+.boardselect {
+    width: 100%;
+    margin-left: 2%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.boardselect>.toggleBtn {
+    background-color: #fff0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.boardselect>Button>i {
+    margin-right: 4%;
+}
+
+.boardselect>Button>p {
+    margin-right: 8%;
+    width: 10%;
+    font-size: 16px;
+    margin: 0 auto;
+}
+.boardselect>Button>.titlep {
+    width: 60%;
+    text-align: left;
+}
+
+.boardselect>Button:hover {
+    background-color: #a9b0bbe1;
+    color: white;
+}
+
+.boardselect>.collapse {
+    min-height: 400px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.boardselect>.collapse>.card {
+    min-height: 400px;
+    padding: 0px 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.boardselect>.collapse>.card>.update {
+    align-self: flex-end;
+}
+
+.boardselect>.collapse>.card>.update>Button {
+    border: none;
+    background-color: #fff0;
+    margin: 5px 2px;
+}
+
+.boardselect>.collapse>.card>.update>Button:hover {
+    background-color: #2c3950e1;
+}
+
+.boardselect>.close {
+    color: black;
+    border: none;
+    background-color: #fff0;
+    align-self: center;
+}
+
+.boardselect>.close:hover {
+    background-color: #2c3950e1;
+}
+
+/* BoardNewCont : 새 글 입력 페이지 */
+.boardnewContPaper {
+    margin: 16px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.boardnewContPaper>.newcon {
+    width: 100%;
+    text-align: left;
+}
+
+.boardnewContPaper>.newcon>p {
+    margin: 10px 5px 5px;
+}
+
+.boardnewContPaper>.newcon>div {
+    border: solid 1px #6e6e6e;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.boardnewContPaper>.newcontent>div {
+    min-height: 400px;
+}
+
+.boardnewContPaper>button {
+    align-self: center;
+    margin: 10px;
+}
+
+
+/* BoardNumber : 하단 페이지 선택 탭 */
+.boardnumber {
+    text-align: center;
+}
+
+.boardnumber>button {
+    border: none;
+    border-radius: 15px;
+    margin: 2px;
+    background-color: #6e6e6e;
+}

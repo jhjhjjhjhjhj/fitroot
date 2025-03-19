@@ -1,0 +1,267 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* ComNav : 커뮤니티 선택 탭 */
+aside {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+
+aside>button {
+    border: none;
+    background-color: transparent !important;
+    padding: 10px 0px 5px;
+    font-size: 20px;
+    margin: 0px 2%;
+    border-radius: 15px;
+}
+
+aside>button>p {
+    padding: 10px;
+    margin: 0px;
+}
+
+/* CommuNew : 관리자 새 글 입력, 검색 탭 */
+.commuSearch {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.commuSearch>.commuNew>button {
+    margin: 0px 10px;
+    border: solid 1px #2C3950;
+    background-color: #fff0;
+}
+
+.commuNew>button>i {
+    margin-right: 2px;
+}
+
+.commuSearch>div>button {
+    background-color: #2c3950;
+    border: none;
+    border-radius: 10px;
+    padding: 2px;
+    text-align: center;
+}
+
+.commuSearch>div>button>i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.commuSearch>div>input {
+    margin-right: 5px;
+    border: solid 1px #2C3950;
+}
+
+/*  */
+.outhr {
+    margin: 10px 0px;
+    border-color: #2C3950;
+}
+
+.inhr {
+    width: 100%;
+}
+
+/* CommuList : Community 목록 출력하기 */
+.commulistpaper {
+    margin: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.commulist {
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    grid-template-rows: repeat(3, 250px);
+    row-gap: 20px;
+    column-gap: 50px;
+}
+
+/* CommuItem : Community 각각 아이템 */
+.commuselect {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(3, 250px);
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.commuselect>.selectCon {
+    background-color: #fff0;
+    border: solid 3px #2C3950;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 250px;
+    height: 250px;
+}
+
+.commuselect>.selectCon>.img {
+    width: 200px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+}
+
+.commuselect>.selectCon>.middle {
+    padding: 0px 10px;
+    display: flex;
+    height: 25px;
+    overflow: hidden;
+}
+
+.commuselect>.selectCon>.middle>.tag {
+    margin-right: 8%;
+}
+
+.commuselect>.selectCon>.middle>.content {
+    width: 80%;
+    text-align: left;
+}
+
+.commuconI {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.commuconI>span {
+    margin-left: 2%;
+    margin-right: 4%;
+}
+
+/* CommuContent : 게시글 상세보기 */
+.commuItemContPaper {
+    display: flex;
+    flex-direction: column;
+}
+
+.commuContTop {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.commuItemContPaper>.contentUpdate {
+    align-self: flex-end;
+}
+
+.contentUpdate>Button {
+    border: none;
+    background-color: #fff0;
+    margin: 5px 2px;
+}
+
+.contentUpdate>Button:hover {
+    background-color: #2C3950;
+}
+
+.commuContTop>Button {
+    font-size: 20px;
+}
+
+.commuinput {
+    border: solid 1px #2C3950;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.commuinputctitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.commuinputctitle>div {
+    display: flex;
+    padding: 5px;
+}
+
+.commuinputctitle>div>i {
+    margin: 5%;
+    padding: 5px, 0px;
+}
+
+.commuinputcontent {
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.commulikebtn {
+    align-self: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border-color: #2C3950;
+    margin: 5px;
+}
+
+.commulikebtn>i {
+    margin: 5px;
+}
+
+.commuclose {
+    align-self: flex-end;
+    width: 60px;
+    font-size: 14px;
+}
+
+/* CommuNewCont : 새 글 입력 페이지 */
+.communewContPaper {
+    margin: 16px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.communewContPaper>.selectinput {
+    display: flex;
+}
+
+.communewContPaper>div>input {
+    margin-left: 10%;
+}
+
+.communewContPaper>.newcon {
+    width: 100%;
+    text-align: left;
+}
+
+.communewContPaper>.newcon>p {
+    margin: 10px 5px 5px;
+}
+
+.communewContPaper>.newcon>div {
+    border: solid 1px #2C3950;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.communewContPaper>.newcontent>div {
+    min-height: 400px;
+}
+
+.communewContPaper>button {
+    align-self: center;
+    margin: 10px;
+}
+
+/* CommuNumber : 하단 페이지 선택 탭 */
+.communumber {
+    text-align: center;
+}
+
+.communumber>button {
+    border: none;
+    border-radius: 15px;
+    margin: 2px;
+    background-color: #6e6e6e;
+}
